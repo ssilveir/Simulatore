@@ -1,0 +1,30 @@
+{% extends "template.html" %}
+{% block conteudo %}
+
+      <form action="{{ url_for('criar') }}" method="post">
+        <fieldset>
+          {{ form.csrf_token() }}
+          <div class="form-group">
+            {{ form.nome.label(class="form-label") }}
+            {{ form.nome(class="form-control") }}
+          </div>
+          <div class="form-group">
+            {{ form.provincia.label(class="form-label") }}
+            {{ form.provincia(class="form-control") }}
+          </div>
+          <div class="form-group">
+            {{ form.localita.label(class="form-label") }}
+            {{ form.localita(class="form-control") }}
+          </div>
+          <div class="form-group">
+            {{ form.indirizzo.label(class="form-label") }}
+            {{ form.indirizzo(class="form-control") }}
+          </div>
+          <div class="form-group buttons">
+            {{ form.salvar(class="btn btn-primary") }}
+            <a class="btn btn-danger" href="{{ url_for('index') }}">Voltar</a>
+          </div>          
+        </fieldset>
+      </form>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "template.html" %}
+{% block conteudo %}
+
+      <form class="formularioCer" action="{{ url_for('atualizar') }}" method="post" enctype="multipart/form-data">
+        <fieldset>
+          <input type="hidden" name="id" value="{{ ID_CER }}">
+          {{ form.csrf_token() }}
+          <div class="form-group inputBox">
+            {{ form.nome.label(class="form-label") }}
+            {{ form.nome(class="form-control") }}
+          </div>
+          <div class="form-group inputBox">
+            {{ form.provincia.label(class="form-label") }}
+            {{ form.provincia(class="form-control") }}
+          </div>
+          <div class="form-group inputBox">
+            {{ form.localita.label(class="form-label") }}
+            {{ form.localita(class="form-control") }}
+          </div>
+          <div class="form-group inputBox">
+            {{ form.indirizzo.label(class="form-label") }}
+            {{ form.indirizzo(class="form-control") }}
+          </div>
+          <div class="form-group buttons">
+            {{ form.salvar(class="btn btn-primary") }}
+            <a class="btn btn-danger" href="{{ url_for('index') }}">Voltar</a>
+          </div>          
+        </fieldset>
+      </form>
+
+{% endblock %}
